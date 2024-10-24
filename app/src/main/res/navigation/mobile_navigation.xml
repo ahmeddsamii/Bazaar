@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="@string/prouductDetails"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.iti.itp.bazaar.mainActivity.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_brandProducts"
+            app:destination="@id/nav_brand_products" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="com.iti.itp.bazaar.mainActivity.ui.categories.CategoriesFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_nav_categories_to_prouductnfoFragment"
+            app:destination="@id/prouductnfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_me"
+        android:name="com.iti.itp.bazaar.mainActivity.ui.me.MeFragment"
+        android:label="@string/me"
+        tools:layout="@layout/fragment_me" >
+        <action
+            android:id="@+id/action_nav_me_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_brand_products"
+        android:name="com.iti.itp.bazaar.mainActivity.ui.brand.BrandProducts"
+        android:label="Brands"
+        tools:layout="@layout/fragment_brand_products">
+        <argument
+            android:name="vendorName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_brand_products_to_prouductnfoFragment"
+            app:destination="@id/prouductnfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prouductnfoFragment"
+        android:name="com.iti.itp.bazaar.productInfo.view.ProuductnfoFragment"
+        android:label="@string/fragmentProuductInfo"
+        tools:layout="@layout/fragment_prouductnfo">
+        <argument
+            android:name="productId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.iti.itp.bazaar.search.view.SearchFragment"
+        android:label="@string/fragmentSearch"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_prouductnfoFragment"
+            app:destination="@id/prouductnfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.iti.itp.bazaar.mainActivity.ui.order.OrderFragment"
+        android:label="My Orders"
+        tools:layout="@layout/fragment_order" >
+        <argument
+            android:name="customerID"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteProductsFragment"
+        android:name="com.iti.itp.bazaar.favoriteProducts.view.FavoriteProductsFragment"
+        android:label="@string/favProducts"
+        tools:layout="@layout/fragment_favorite_products" >
+        <action
+            android:id="@+id/action_favoriteProductsFragment_to_prouductnfoFragment"
+            app:destination="@id/prouductnfoFragment" />
+    </fragment>
+</navigation>
