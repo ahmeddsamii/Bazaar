@@ -48,6 +48,7 @@ object ShopifyRetrofitObj {
         chain.proceed(request)
     }
 
+
     private val cache = Cache(File(MyApplication.instance.cacheDir, "http-cache"), CACHE_SIZE.toLong())
 
     private val client: OkHttpClient = OkHttpClient.Builder()
